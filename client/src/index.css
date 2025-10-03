@@ -1,0 +1,234 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* Chat theme variables */
+  --chat-bg-gpt: #f5f5f5;     /* light grey for bot */
+  --chat-bg-human: #ffffff;   /* white for human */
+  --avatar-bg-gpt: #1a73e8;   /* blue for bot */
+  --avatar-bg-human: #ff5722; /* orange for human */
+  --text-color: #111111;      /* dark text */
+}
+
+.main-logo {
+  height: 100px;
+  margin-top: 20px;
+}
+
+/* App container */
+.App {
+  text-align: center;
+  display: flex;
+  background-color: #fdfdfd; /* premium white */
+  color: #2e2e2e; /* dark neutral text */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Sidebar */
+.sidemenu {
+  height: 100vh;
+  background-color: #ffffff; /* crisp white */
+  padding: 10px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  border-right: 1px solid #e6e6e6; /* subtle divider */
+}
+
+/* Scrollbar */
+.sidemenu::-webkit-scrollbar {
+  width: 12px;
+}
+
+.sidemenu::-webkit-scrollbar-track {
+  background-color: #fafafa;
+}
+
+.sidemenu::-webkit-scrollbar-thumb {
+  background-color: #c5c5c5;
+  border-radius: 20px;
+  border: 3px solid #fafafa;
+}
+
+/* Sidebar buttons */
+.side-menu-button {
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: all 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.side-menu-button:hover {
+  background-color: #f0f0f0;
+  border-color: #d0d0d0;
+}
+
+.side-menu-button span {
+  padding-right: 12px;
+  padding-left: 6px;
+}
+
+.project-info {
+  text-align: left;
+  margin: 10px;
+  gap: 1rem;
+  display: grid;
+}
+
+.creator {
+  display: flex;
+  flex-direction: column;
+}
+
+.creator a {
+  color: #0073e6;
+  outline: none;
+  text-decoration: none;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.link-icon {
+  margin-right: 10px;
+  background: #0073e6;
+  padding: 2px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+/* Chat area */
+.chatbox {
+  flex: 1;
+  background-color: #fafafa; /* soft gray-white */
+  display: flex;
+  flex-direction: column; /* important for ChatGPT layout */
+  position: relative;
+}
+
+/* Chat log */
+.chat-log {
+  flex: 1; /* takes all space above input */
+  padding: 24px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  padding-bottom: 140px; /* enough space for input bar */
+}
+
+.chat-log::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chat message bubble */
+.chat-message {
+  border: 1px solid #ddd;
+  margin: 0.5em 0;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  gap: 1em;
+  align-items: flex-start;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  color: var(--text-color);
+}
+
+.chat-message.gpt {
+  background: var(--chat-bg-gpt);
+}
+
+.chat-message.human {
+  background: var(--chat-bg-human);
+}
+
+/* Avatar */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar.gpt {
+  background: var(--avatar-bg-gpt);
+}
+
+.avatar.human {
+  background: var(--avatar-bg-human);
+}
+
+.avatar img {
+  width: 22px;
+}
+
+.message {
+  color: var(--text-color);
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* Chat input */
+.chat-input-holder {
+  padding: 20px;
+  background-color: #ffffff;
+  border-top: 1px solid #e0e0e0;
+  position: sticky; /* sticky keeps it at bottom */
+  bottom: 0;
+  z-index: 10; /* above messages */
+}
+
+.chat-input-textarea {
+  width: 100%;
+  color: #333;
+  font-size: 18px;
+  padding: 12px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #d0d0d0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.chat-input-textarea:focus {
+  border-color: #0073e6;
+  box-shadow: 0 0 0 3px rgba(0,115,230,0.15);
+}
+
+/* Responsive */
+@media screen and (min-width: 980px) {
+  .chatbox {
+    margin-inline: 8rem;
+  }
+  .chat-input-textarea {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sidemenu {
+    display: none; /* hide sidebar on small screens */
+  }
+}
