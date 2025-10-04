@@ -15,7 +15,7 @@ const ai = new GoogleGenAI({
 });
 
 app.get("/", (req, res) => {
-  res.status(200).send({ message: "Hello from HelpAI!" });
+  res.status(200).send({ message: "Hey Hi I am Swifty!" });
 });
 
 app.post("/", async (req, res) => {
