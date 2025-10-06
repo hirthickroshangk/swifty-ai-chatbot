@@ -14,7 +14,7 @@ const App = () => {
   const [chatLog, setChatLog] = useState([
     {
       user: "gpt",
-      message: "Hello User! How can I help you today?",
+      message: "Got questions? I’ve got answers.",
     },
   ]);
 
