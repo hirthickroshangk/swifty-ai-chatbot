@@ -28,7 +28,7 @@ const ChatBox = ({ chatLog, setChatLog }) => {
     setChatLog(newChatLogData);
   
     try {
-      const response = await fetch("http://localhost:3080", {
+      const response = await fetch("https://swifty-ai-chatbot.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input }), // <--- Send only current input
